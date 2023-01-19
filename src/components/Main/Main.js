@@ -1,10 +1,12 @@
 import React from 'react';
 import { usePokemon } from '../../hooks/pokemon.js';
+import Select from '../Select/Select.js';
 
 export default function Main() {
-  const { pokemon } = usePokemon();
+  const { pokemon, types, handleTypeChange } = usePokemon();
   return (
     <div>
+      <Select types={types} handleTypeChange={handleTypeChange} />
       {pokemon.map((poke) => (
         <>
           <img src={poke.url_image} />
