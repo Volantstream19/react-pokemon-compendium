@@ -21,8 +21,8 @@ h1 {
 .pokemonCard {
   display: flex;
   justify-content: space-evenly;
-  height: 220px;
-  width: 500px;
+  height: 180px;
+  width: 450px;
   gap: 10px;
   border: 4px solid black;
   border-radius: 20px;

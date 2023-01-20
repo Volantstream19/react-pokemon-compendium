@@ -1,14 +1,18 @@
 import React from 'react';
+import './Search.css';
 
 export default function Search({ handleSearch, setSearchTerm, searchTerm }) {
   return (
-    <div>
+    <div className="searchBox">
       <input
+        className="searchInput"
         type="text"
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
-      <button onClick={(e) => handleSearch(e, searchTerm)}>Search</button>
+      <button className="searchButton" onClick={(e) => handleSearch(e, searchTerm)}>
+        +
+      </button>
     </div>
   );
 }
