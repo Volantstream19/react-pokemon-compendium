@@ -13,6 +13,7 @@ export default function Main() {
     <div>
       <Search {...{ handleSearch, setSearchTerm, searchTerm }} />
       <Select types={types} handleTypeChange={handleTypeChange} />
+      {searchTerm !== '' && <div>Searching by {searchTerm}</div>}
       <>
         <div className="pokeMons">
           {pokemon.map((poke) => (
