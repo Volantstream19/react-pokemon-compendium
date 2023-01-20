@@ -4,8 +4,9 @@ import Select from '../Select/Select.js';
 import Search from '../Search/Search.js';
 
 export default function Main() {
-  const { pokemon, types, handleTypeChange, handleSearch, setSearchTerm, searchTerm } =
+  const { pokemon, types, handleTypeChange, handleSearch, setSearchTerm, searchTerm, loading } =
     usePokemon();
+  if (loading) return <p>Loading..</p>;
   return (
     <div>
       <Search {...{ handleSearch, setSearchTerm, searchTerm }} />
@@ -19,6 +20,7 @@ export default function Main() {
             Hp: {poke.hp}
             Attack: {poke.attack}
             Defense: {poke.defense}
+            loading={loading}
           </p>
         </>
       ))}

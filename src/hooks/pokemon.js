@@ -10,13 +10,16 @@ export function usePokemon() {
   const [pokemon, setPokemon] = useState([]);
   const [types, setTypes] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true);
 
   // Fetching pokemon names and data from api
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       const data = await fetchPokemon();
 
       setPokemon(data);
+      setLoading(false);
     };
     fetchData();
   }, []);
@@ -30,8 +33,10 @@ export function usePokemon() {
   }, []);
   //
   const handleTypeChange = async (type) => {
+    setLoading(true);
     const data = await fetchPokemonType(type);
     setPokemon(data);
+    setLoading(false);
   };
 
   const handleSearch = async (e, searchTerm) => {
