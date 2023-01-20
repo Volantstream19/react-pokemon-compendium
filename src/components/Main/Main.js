@@ -1,11 +1,14 @@
 import React from 'react';
 import { usePokemon } from '../../hooks/pokemon.js';
 import Select from '../Select/Select.js';
+import Search from '../Search/Search.js';
 
 export default function Main() {
-  const { pokemon, types, handleTypeChange } = usePokemon();
+  const { pokemon, types, handleTypeChange, handleSearch, setSearchTerm, searchTerm } =
+    usePokemon();
   return (
     <div>
+      <Search {...{ handleSearch, setSearchTerm, searchTerm }} />
       <Select types={types} handleTypeChange={handleTypeChange} />
       {pokemon.map((poke) => (
         <>

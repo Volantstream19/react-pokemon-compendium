@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react';
-import { fetchPokemon, fetchPokemonType, fetchTypes } from '../services/fetchPokemon.js';
+import {
+  fetchPokemon,
+  fetchPokemonType,
+  fetchTypes,
+  fetchPokemonSearch,
+} from '../services/fetchPokemon.js';
 
 export function usePokemon() {
   const [pokemon, setPokemon] = useState([]);
   const [types, setTypes] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
   // Fetching pokemon names and data from api
   useEffect(() => {
     const fetchData = async () => {
@@ -20,12 +27,17 @@ export function usePokemon() {
       setTypes(data);
     };
     fetchType();
-  });
+  }, []);
   //
   const handleTypeChange = async (type) => {
     const data = await fetchPokemonType(type);
     setPokemon(data);
   };
 
-  return { pokemon, types, handleTypeChange };
+  const handleSearch = async (e, searchTerm) => {
+    e.preventDefault();
+    const data = await fetchPokemonSearch(searchTerm);
+    setPokemon(data);
+  };
+  return { pokemon, types, handleTypeChange, searchTerm, handleSearch, setSearchTerm };
 }

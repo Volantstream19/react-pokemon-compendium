@@ -19,3 +19,17 @@ export async function fetchPokemonType(type) {
   const res = await data.json();
   return res.results;
 }
+
+export async function fetchPokemonSearch(searchTerm) {
+  //   const resp = new URLSearchParams();
+  //   resp.set('pokemon', searchTerm);
+  //   let search = `https://alchemy-pokedex.herokuapp.com/api/pokedex/?${resp.toString()}`;
+  let search = `https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon=${searchTerm}`;
+  //   if (types) {
+  //     search += `&type=${types}`;
+  //   }
+  const response = await fetch(search);
+  const data = await response.json();
+
+  return data.results;
+}
