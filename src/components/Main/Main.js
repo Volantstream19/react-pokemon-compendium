@@ -8,7 +8,7 @@ import './Main.css';
 export default function Main() {
   const { pokemon, types, handleTypeChange, handleSearch, setSearchTerm, searchTerm, loading } =
     usePokemon();
-  if (loading) return <p>Loading..</p>;
+  if (loading) return <div className="loader"></div>;
   return (
     <div>
       <Search {...{ handleSearch, setSearchTerm, searchTerm }} />
