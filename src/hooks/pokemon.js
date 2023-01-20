@@ -11,7 +11,6 @@ export function usePokemon() {
   const [types, setTypes] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
-
   // Fetching pokemon names and data from api
   useEffect(() => {
     setLoading(true);
@@ -44,5 +43,13 @@ export function usePokemon() {
     const data = await fetchPokemonSearch(searchTerm);
     setPokemon(data);
   };
-  return { pokemon, types, handleTypeChange, searchTerm, handleSearch, setSearchTerm };
+  return {
+    pokemon,
+    types,
+    handleTypeChange,
+    searchTerm,
+    handleSearch,
+    setSearchTerm,
+    loading,
+  };
 }

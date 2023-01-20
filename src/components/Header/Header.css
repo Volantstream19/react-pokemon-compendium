@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+.header {
+  color: #ffffff;
+  background-color: #ff0000;
+  margin: 0;
+  padding-top: 12px;
+  text-align: center;
+  justify-content: center;
+  height: 60px;
+  font-family: 'Sora', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
